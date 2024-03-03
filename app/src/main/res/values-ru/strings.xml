@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">mirea_prac_1</string>
+    <string name="text_1">РТУ МИРЭА!</string>
+    <string name="text_2">ЛУЧШИЙ УНИВЕРСИТЕТ!</string>
+    <string name="button">КНОПКА</string>
+    <string name="hintik">напиши здесь</string>
+</resources>
