@@ -41,12 +41,19 @@ public class MainActivity2 extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
 
 
+        // считываем сообщение с прошлого intent,
+        // чтобы далее можно было определить что выводить в Activity
 
         Intent i = getIntent();
         String str = i.getStringExtra("product");
         Toast.makeText(this,str,Toast.LENGTH_SHORT).show();
+
+        // объявляем строковый массив, который далее будем
+        // переопределять в зависимости от выбора пользователя
         String[] products2;
 
+        // проверяем какую категорию выбрал пользователь
+        // и в зависимости от этого меняем содержимое  будущего ListView
         switch (str) {
             case "Мясо":
                 products2 = getResources().getStringArray(R.array.Meal);
@@ -73,26 +80,31 @@ public class MainActivity2 extends AppCompatActivity {
                 products2 = getResources().getStringArray(R.array.Products);
         }
 
+        //создаём ListView
         ListView products_view = (ListView) findViewById(R.id.my_list_view2);
 
+        // Преобразуем строковый массив в список, чтобы можно было добавлять элементы.
+        // Иначе будет ошибка, потому что в массив нельзя ничего добавлять
         ArrayList<String> list = new ArrayList<String>();
         Collections.addAll(list, products2);
 
+        // создаём adapter
         productsAdapter = new ArrayAdapter
                 (this, android.R.layout.simple_list_item_multiple_choice, list);
 
+        //устанавливаем adapter
         products_view.setAdapter(productsAdapter);
 
         products_view.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-
-
+                String user = productsAdapter.getItem(position);
+                if(products_view.isItemChecked(position))
+                    selectedUsers.add(user);
 
             }
         });
-
 
 
     }
@@ -102,7 +114,6 @@ public class MainActivity2 extends AppCompatActivity {
         String user = userName.getText().toString();
         productsAdapter.add(user);
 
-
     }
 
     public void remove(View view){
@@ -110,14 +121,7 @@ public class MainActivity2 extends AppCompatActivity {
         for(int k =0; k < selectedUsers.size();k++){
             productsAdapter.remove(selectedUsers.get(k));
         }
-        // снимаем все ранее установленные отметки
-        products_view.clearChoices();
-        // очищаем массив выбраных объектов
         selectedUsers.clear();
-
-        productsAdapter.notifyDataSetChanged();
     }
-
-
 
 }
