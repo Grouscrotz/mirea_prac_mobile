@@ -17,15 +17,30 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 public class MainActivity2 extends AppCompatActivity {
+    public static <T> List<T> convertArrayToList(T array[])
 
+    {
+
+        List<T> list = Arrays.asList(array);
+
+        return list;
+
+    }
+    ArrayList<String> users = new ArrayList<String>();
+    ArrayList<String> selectedUsers = new ArrayList<String>();
+    ArrayAdapter<String> productsAdapter;
+    ListView products_view;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-        ArrayList<String> selectedUsers = new ArrayList<String>();
+
 
         Intent i = getIntent();
         String str = i.getStringExtra("product");
@@ -60,9 +75,11 @@ public class MainActivity2 extends AppCompatActivity {
 
         ListView products_view = (ListView) findViewById(R.id.my_list_view2);
 
+        ArrayList<String> list = new ArrayList<String>();
+        Collections.addAll(list, products2);
 
-        ArrayAdapter<String> productsAdapter = new ArrayAdapter<String>
-                (this, android.R.layout.simple_list_item_multiple_choice, products2);
+        productsAdapter = new ArrayAdapter
+                (this, android.R.layout.simple_list_item_multiple_choice, list);
 
         products_view.setAdapter(productsAdapter);
 
@@ -70,33 +87,37 @@ public class MainActivity2 extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                // получаем нажатый элемент
-                String user = productsAdapter.getItem(position);
-                if(products_view.isItemChecked(position))
-                    selectedUsers.add(user);
-                else
-                    selectedUsers.remove(user);
+
 
 
             }
         });
 
 
-        public void add(View v)
+
+    }
+    public void add(View view){
+
+        EditText userName = findViewById(R.id.editTextText);
+        String user = userName.getText().toString();
+        productsAdapter.add(user);
 
 
-        public void remove(View view){
-            // получаем и удаляем выделенные элементы
-            for(int k =0; k < selectedUsers.size();k++){
-                productsAdapter.remove(selectedUsers.get(k));
-            }
-            // снимаем все ранее установленные отметки
-            products_view.clearChoices();
-            // очищаем массив выбраных объектов
-            selectedUsers.clear();
+    }
 
-            productsAdapter.notifyDataSetChanged();
+    public void remove(View view){
+        // получаем и удаляем выделенные элементы
+        for(int k =0; k < selectedUsers.size();k++){
+            productsAdapter.remove(selectedUsers.get(k));
         }
+        // снимаем все ранее установленные отметки
+        products_view.clearChoices();
+        // очищаем массив выбраных объектов
+        selectedUsers.clear();
+
+        productsAdapter.notifyDataSetChanged();
+    }
+
 
 
 }

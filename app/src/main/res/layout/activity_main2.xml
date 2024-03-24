@@ -9,31 +9,33 @@
 
     <ListView
         android:id="@+id/my_list_view2"
-        android:layout_width="392dp"
-        android:layout_height="688dp"
+        android:layout_width="370dp"
+        android:layout_height="439dp"
         android:layout_marginStart="1dp"
 
-        android:layout_marginBottom="119dp"
         android:choiceMode="multipleChoice"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.043">
 
     </ListView>
 
     <Button
-        android:onClick="remove"
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
         android:layout_marginBottom="20dp"
+        android:onClick="remove"
         android:text="Удалить элементы"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/my_list_view2"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.049" />
 
     <EditText
         android:id="@+id/editTextText"
@@ -47,22 +49,22 @@
         app:layout_constraintHorizontal_bias="0.087"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/button"
-        app:layout_constraintVertical_bias="0.81" />
+        app:layout_constraintVertical_bias="0.539" />
 
     <Button
-        android:onClick="add"
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="27dp"
         android:layout_marginEnd="28dp"
         android:layout_marginBottom="11dp"
+        android:onClick="add"
         android:text="Добавить"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/editTextText"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.842" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
