@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="Products">
+        <item> Мясо </item>
+        <item> Рыба </item>
+        <item> Овощи </item>
+        <item> Крупы </item>
+        <item> Молоко и молочные продукты </item>
+        <item> Фрукты </item>
+        <item> Ягоды </item>
+    </string-array>
+
+
+    <string-array name="Meal">
+        <item>Говядина</item>
+        <item>Свинина</item>
+        <item>Курица</item>
+        <item>Телятина</item>
+        <item>Индейка</item>
+        <item>Гусятина</item>
+    </string-array>
+
+    <string-array name="Fish">
+        <item>Горбуша</item>
+        <item>Судак</item>
+        <item>Семга</item>
+        <item>Хек</item>
+        <item>Лещ</item>
+        <item>Треска</item>
+    </string-array>
+
+    <string-array name="Vegetables">
+        <item>Огурцы</item>
+        <item>Помидоры</item>
+        <item>Морковь</item>
+        <item>Свекла</item>
+        <item>Редиска</item>
+        <item>Капуста</item>
+    </string-array>
+
+    <string-array name="Cereals">
+        <item>Гречка</item>
+        <item>Рис</item>
+        <item>Геркулес</item>
+        <item>Манная</item>
+        <item>Кускус</item>
+        <item>Перловка</item>
+    </string-array>
+
+    <string-array name="Milk">
+        <item>Молоко</item>
+        <item>Кефир</item>
+        <item>Ряженка</item>
+        <item>Айран</item>
+        <item>Сыр</item>
+        <item>Творог</item>
+    </string-array>
+
+    <string-array name="Fruits">
+        <item>Апельсины</item>
+        <item>Гранат</item>
+        <item>Бананы</item>
+        <item>Яблоки</item>
+        <item>Помело</item>
+        <item>Грейпфрут</item>
+    </string-array>
+
+    <string-array name="Berries">
+        <item>Калина</item>
+        <item>Брусника</item>
+        <item>Голубика</item>
+        <item>Черника</item>
+        <item>Клубника</item>
+        <item>Виноград</item>
+    </string-array>
+
+</resources>

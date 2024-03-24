@@ -3,36 +3,40 @@ package com.example.mirea_prac_1;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
-    int clicks = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ConstraintLayout constraintLayout = new ConstraintLayout(this);
-        TextView textView = new TextView(this);
-        textView.setText("Hello Android!");
-        textView.setTextSize(30);
-        textView.setBackgroundColor(0xffe8eaf6);
+        setContentView(R.layout.activity_main);
 
-        // установка gravity
-        textView.setGravity(Gravity.BOTTOM | Gravity.CENTER);
-        // установка высоты и ширины
-        ConstraintLayout.LayoutParams layoutParams = new ConstraintLayout.LayoutParams
-                (ConstraintLayout.LayoutParams.MATCH_CONSTRAINT, 200);
+        ListView products_view = (ListView) findViewById(R.id.my_list_view);
 
-        layoutParams.leftToLeft = ConstraintLayout.LayoutParams.PARENT_ID;
-        layoutParams.rightToRight = ConstraintLayout.LayoutParams.PARENT_ID;
-        layoutParams.topToTop = ConstraintLayout.LayoutParams.PARENT_ID;
-        layoutParams.bottomToBottom = ConstraintLayout.LayoutParams.PARENT_ID;
+        String[] products = getResources().getStringArray(R.array.Products);
 
-        textView.setLayoutParams(layoutParams);
-        constraintLayout.addView(textView);
-        setContentView(constraintLayout);
+        ArrayAdapter<String> productsAdapter = new ArrayAdapter<String>
+                (this, android.R.layout.simple_list_item_1, products);
+
+        products_view.setAdapter(productsAdapter);
+        products_view.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String selectedItem = products[position];
+                Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+                intent.putExtra("product", selectedItem);
+                startActivity(intent);
+            }
+        });
+
 
     }
 }
